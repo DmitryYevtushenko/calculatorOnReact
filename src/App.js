@@ -1,27 +1,29 @@
-import React from 'react';
-// import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 import KeyPad from "./components/KeyPad";
 import Output from './components/Output';
 
-function App() {
-  let state = {
+class App extends Component {
+  state = {
     result: ''
   }
 
-  let buttonPressed = buttonName => {
+  buttonPressed = buttonName => {
     this.setState({
       result: buttonName
     });
   };
 
-  return (
-    <div className="App">
-      <Output result={state.result} />
-      <KeyPad buttonPressed={buttonPressed}/>
+    render() {
+      return (
+        <div className="App">
+          <Output result={this.state.result} />
+          <KeyPad buttonPressed={this.buttonPressed}/>
+    
+        </div>
+      );
+    }
 
-    </div>
-  );
 }
 
 export default App;

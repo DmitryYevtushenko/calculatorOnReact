@@ -5,6 +5,7 @@ export default class KeyPad extends Component {
   buttonPressed = e => {
     this.props.buttonPressed(e.target.name);
   };
+  
   render() {
     return (
       <div className="KeyPad">
