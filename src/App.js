@@ -6,11 +6,20 @@ import Output from './components/Output';
 class App extends Component {
   state = {
     result: ''
-  }
+  };
 
   buttonPressed = buttonName => {
+    if (buttonName === '=') {
+      this.calculate();
+    } else 
     this.setState({
-      result: buttonName
+      result: this.state.result + buttonName
+    });
+  };
+
+  calculate = () => {
+    this.setState({
+      result: eval(this.state.result)
     });
   };
 
@@ -22,7 +31,7 @@ class App extends Component {
     
         </div>
       );
-    }
+    };
 
 }
 
