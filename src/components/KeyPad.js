@@ -26,10 +26,11 @@ export default class KeyPad extends Component {
           <button type="button" name="2" onClick={this.buttonPressed}>2</button>
           <button type="button" name="3" onClick={this.buttonPressed}>3</button>
           <button type="button" name="+" onClick={this.buttonPressed}>+</button>
-          <button type="button" name="+/-" onClick={this.buttonPressed}>+/-</button>
+          <button type="button" name="-" onClick={this.buttonPressed}>+/-</button>
           <button type="button" name="0" onClick={this.buttonPressed}>0</button>
           <button type="button" name="." onClick={this.buttonPressed}>.</button>
           <button type="button" name="=" onClick={this.buttonPressed}>=</button>
+          <button className="save" name="save" onClick={this.buttonPressed}>Save result</button>
         </div>
       </div>
     );

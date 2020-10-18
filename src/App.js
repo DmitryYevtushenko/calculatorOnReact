@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { saveAs, encodeBase64 } from '@progress/kendo-file-saver';
 import './App.css';
 import KeyPad from "./components/KeyPad";
 import Output from './components/Output';
 
 export default class App extends Component {
   state = {
-    result: ''
+    result: ""
   };
 
   buttonPressed = buttonName => {
@@ -13,10 +14,13 @@ export default class App extends Component {
       this.calculate();
     } else if (buttonName === 'C') {
       this.reset();
-    } else 
-    this.setState({
-      result: this.state.result + buttonName
-    });
+    } else if (buttonName === 'save') {
+      this.saveToFile();
+    } else {
+      this.setState({
+        result: this.state.result + buttonName
+      });
+    }
   };
 
   calculate = () => {
@@ -34,8 +38,13 @@ export default class App extends Component {
   reset = () => {
     this.setState({
       result: ""
-    })
-  }
+    });
+  };
+  
+  saveToFile = () => {
+    const dataURI = "data:text/plain;base64," + encodeBase64(this.state.result.toString());
+    saveAs(dataURI, "result.txt");
+  };
 
   render() {
     return (
@@ -44,10 +53,7 @@ export default class App extends Component {
           <Output result={this.state.result} />
           <KeyPad buttonPressed={this.buttonPressed} />
         </div>
-
-
       </div>
     );
   };
-
 }

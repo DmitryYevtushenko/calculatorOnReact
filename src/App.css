@@ -28,3 +28,7 @@
   font-size: 40px;
   color: rgb(88, 88, 88);
 }
+
+.buttons .save {
+  width: 100%;
+}
