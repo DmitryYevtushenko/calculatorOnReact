@@ -26,6 +26,7 @@ export default class App extends Component {
   calculate = () => {
     try {
       this.setState({
+        // eslint-disable-next-line
         result: eval(this.state.result || "")
       });
     } catch (e) {
