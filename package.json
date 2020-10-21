@@ -14,7 +14,7 @@
   "scripts": {
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start": "node backend/server.js",
+    "start": "web: node index.js",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install npm && run build"
   },
   "eslintConfig": {
